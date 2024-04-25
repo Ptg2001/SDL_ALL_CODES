@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Registration Form</h2>
+  <form id="registrationForm" onsubmit="return displayDetails()">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="organization">Organization:</label>
+      <input type="text" id="organization" name="organization">
+    </div>
+    <div class="form-group">
+      <label for="hobbies">Hobbies:</label>
+      <textarea id="hobbies" name="hobbies"></textarea>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+  
+  <div id="detailsContainer" style="display:none;">
+    <h2>Registration Details</h2>
+    <p><strong>First Name:</strong> <span id="displayFirstName"></span></p>
+    <p><strong>Last Name:</strong> <span id="displayLastName"></span></p>
+    <p><strong>Organization:</strong> <span id="displayOrganization"></span></p>
+    <p><strong>Hobbies:</strong> <span id="displayHobbies"></span></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
