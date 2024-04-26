@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm" action="#">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Validation
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+
+            usernameError.textContent = "";
+            passwordError.textContent = "";
+
+            if (username === "") {
+                usernameError.textContent = "Username is required";
+                return;
+            }
+
+            if (password === "") {
+                passwordError.textContent = "Password is required";
+                return;
+            }
+
+            // If all validations pass, submit the form
+            loginForm.submit();
+        });
+    </script>
+</body>
+</html>
+
