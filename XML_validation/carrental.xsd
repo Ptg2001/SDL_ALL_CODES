@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="carrentals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="carrental" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="renter" type="xs:string"/>
+              <xs:element name="rentalinfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="car" type="xs:string"/>
+                    <xs:element name="rentaldate" type="xs:date"/>
+                    <xs:element name="returndate" type="xs:date"/>
+                    <xs:element name="pickuplocation" type="xs:string"/>
+                    <xs:element name="returnlocation" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="additionalinfo" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="specialrequests" type="xs:string" minOccurs="0"/>
+                    <xs:element name="insurance" type="xs:boolean" default="false"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="rentalid" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

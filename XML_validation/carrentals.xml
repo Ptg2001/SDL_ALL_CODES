@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carrentals xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="carrental.xsd">
+
+  <carrental rentalid="ABC123">
+    <renter>Piyush</renter>
+
+    <rentalinfo>
+      <car>BMW</car>
+      <rentaldate>2024-02-06</rentaldate>
+      <returndate>2024-02-13</returndate>
+      <pickuplocation>Zoop Cars</pickuplocation>
+      <returnlocation>Zoop Cars</returnlocation>
+    </rentalinfo>
+
+    <additionalinfo>
+      <specialrequests>GPS Navigation</specialrequests>
+      <insurance>true</insurance>
+    </additionalinfo>
+  </carrental>
+
+  <carrental rentalid="DEF456">
+    <renter>Rajesh</renter>
+
+    <rentalinfo>
+      <car>Mercedes</car>
+      <rentaldate>2024-02-08</rentaldate>
+      <returndate>2024-02-15</returndate>
+      <pickuplocation>Rapid Rent</pickuplocation>
+      <returnlocation>Rapid Rent</returnlocation>
+    </rentalinfo>
+
+    <additionalinfo>
+      <specialrequests>Child Seat</specialrequests>
+      <insurance>true</insurance>
+    </additionalinfo>
+  </carrental>
+
+</carrentals>
