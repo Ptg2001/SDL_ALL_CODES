@@ -1,0 +1,332 @@
+register.html
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<title>REGISTRATION</title>
+
+<style>
+
+body{
+
+padding-left: 40%;
+
+background-color: aquamarine;
+
+}
+
+#fam{
+
+color: blue;
+
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<h1 id="fam">Registration Form</h1>
+
+<div class="main">
+
+<div class="register">
+
+<form id="register">
+
+<label>First Name : </label>
+
+<br>
+
+<input type ="text" name="fname"
+
+id="name" placeholder="Enter Your First Name" required>
+
+<br><br>
+
+
+
+<label>Last Name : </label>
+
+<br>
+
+<input type ="text" name="lname"
+
+id="name" placeholder="Enter Your Last Name" required>
+
+<br><br>
+
+
+
+<label>Email : </label>
+
+<br>
+
+<input type="email" name="email"
+
+id="name" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="ex: example@ex.com"placeholder="Enter Valid Email" required>
+
+<br><br>
+
+<label>Your License number : </label>
+
+<br>
+
+<input type="text" name="lic"
+
+id="name" placeholder="Enter Your License number" required>
+
+<br><br>
+
+
+
+<label for = "myform_phone">Phone Number : </label>
+
+<br>
+
+<input type="tel" name="phone" maxlength="10" onkeypress="return onlyNumberKey(event)"
+
+id="myform_phone" placeholder="Enter Your Phone Number" pattern="[7-9]{1}[0-9]{9}" required>
+
+<br><br>
+
+<label>Password : </label>
+
+<br>
+
+<input type="password" name="pass" maxlength="12"
+
+id="psw" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+<br><br>
+
+<label>Confirm Password : </label>
+
+<br>
+
+<input type="password" name="cpass"
+
+id="cpsw" placeholder="Renter the password" required>
+
+<br><br>
+
+<tr>
+
+<td><label">Gender : </label></td><br>
+
+<td>
+
+<label for="one">Male</label>
+
+<input type="radio" id="input_enabled" name="gender" value="male" />
+
+</td>
+
+<td>
+
+<label for="two">Female</label>
+
+<input type="radio" id="input_disabled" name="gender" value="female"/>
+
+</td>
+
+</tr>
+
+<br><br>
+
+
+
+<input id="success" type="submit" class="btnn" value="REGISTER" name="regs" style="background-color: #ff7200;color: white">
+
+</input>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="register.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+register.js
+
+
+
+var myInput = document.getElementById("psw");
+
+var letter = document.getElementById("letter");
+
+var capital = document.getElementById("capital");
+
+var number = document.getElementById("number");
+
+var length = document.getElementById("length");
+
+var success = document.getElementById("success");
+
+
+
+success.onfocus = function(){
+
+alert("Successfully Registered!!!");
+
+}
+
+
+
+myInput.onfocus = function() {
+
+document.getElementById("message").style.display = "block";
+
+}
+
+
+
+myInput.onblur = function() {
+
+document.getElementById("message").style.display = "none";
+
+}
+
+
+
+myInput.onkeyup = function() {
+
+var lowerCaseLetters = /[a-z]/g;
+
+if(myInput.value.match(lowerCaseLetters)) {
+
+letter.classList.remove("invalid");
+
+letter.classList.add("valid");
+
+} else {
+
+letter.classList.remove("valid");
+
+letter.classList.add("invalid");
+
+}
+
+
+
+var upperCaseLetters = /[A-Z]/g;
+
+if(myInput.value.match(upperCaseLetters)) {
+
+capital.classList.remove("invalid");
+
+capital.classList.add("valid");
+
+} else {
+
+capital.classList.remove("valid");
+
+capital.classList.add("invalid");
+
+}
+
+
+
+var numbers = /[0-9]/g;
+
+if(myInput.value.match(numbers)) {
+
+number.classList.remove("invalid");
+
+number.classList.add("valid");
+
+} else {
+
+number.classList.remove("valid");
+
+number.classList.add("invalid");
+
+}
+
+
+
+if(myInput.value.length >= 8) {
+
+length.classList.remove("invalid");
+
+length.classList.add("valid");
+
+} else {
+
+length.classList.remove("valid");
+
+length.classList.add("invalid");
+
+}
+
+}
+
+
+
+function onlyNumberKey(evt) {
+
+var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+
+if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+
+return false;
+
+return true;
+
+}
+
+
+
+var phone_input = document.getElementById("myform_phone");
+
+
+
+phone_input.addEventListener('input', () => {
+
+phone_input.setCustomValidity('');
+
+phone_input.checkValidity();
+
+});
+
+
+
+phone_input.addEventListener('invalid', () => {
+
+if(phone_input.value === '') {
+
+phone_input.setCustomValidity('Enter phone number!');
+
+} else {
+
+phone_input.setCustomValidity('Please Enter 10 digit mobile number');
+
+}
+
+});
+
